@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://cxf.wolfcode.cn/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://webservice.example.com/" name="AppServiceImplService" targetNamespace="http://cxf.wolfcode.cn/">
+  <wsdl:import location="http://localhost:8080/services/user?wsdl=AppService.wsdl" namespace="http://webservice.example.com/">
+    </wsdl:import>
+  <wsdl:binding name="AppServiceImplServiceSoapBinding" type="ns1:AppService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="UnsupportedEncodingException">
+        <soap:fault name="UnsupportedEncodingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUserName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="UnsupportedEncodingException">
+        <soap:fault name="UnsupportedEncodingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AppServiceImplService">
+    <wsdl:port binding="tns:AppServiceImplServiceSoapBinding" name="testPort">
+      <soap:address location="http://localhost:8080/services/user"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
