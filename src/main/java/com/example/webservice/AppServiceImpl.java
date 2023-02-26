@@ -17,14 +17,13 @@ import java.util.List;
 public class AppServiceImpl implements AppService {
 
     @Override
-    public String getUserName(String id) throws UnsupportedEncodingException {
+    public String getUserName(String id) {
         System.out.println("id ================== " + id);
         return "获取名字";
     }
 
     @Override
-    public String getUser(String name) throws UnsupportedEncodingException {
-        ArrayList<User> users = new ArrayList<>();
+    public String getUser(String name) {
         User user1 = new User();
         user1.setId("123");
         user1.setName("haha");
